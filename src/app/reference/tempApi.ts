@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const Ense = (page:number, perPage:number):any => {
+const TempApi = (page:number, perPage:number):any => {
 
     const resource = axios({
         method  : "GET",
@@ -48,4 +48,4 @@ const wrapPromise = (promise:any) => {
     return { read }
 }
 
-export default Ense;
+export default TempApi;
