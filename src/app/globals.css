@@ -95,6 +95,11 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+.svg_map:hover {
+  cursor: pointer;
+  fill: red;
+}
+
 a {
   color: inherit;
   text-decoration: none;
