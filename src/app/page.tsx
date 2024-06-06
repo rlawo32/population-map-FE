@@ -6,9 +6,7 @@ import Nationwide from "./map/nationwide";
 export default function Home() {
   return (
     <main className={styles.main}>
-      
       <Nationwide />
-
     </main>
   );
 }
