@@ -14,8 +14,9 @@ const BtnSection = styled('div')<{$x:number, $y:number, $size:number}>`
 
     transform-origin: ${({$x}) => $x}px ${({$y}) => $y}px;
     transform: scale(${({$size}) => $size}, ${({$size}) => $size});
-    transition: all 0.5s ease-in;
+    transition: transform 0.5s ease-in 0s, opacity 0.5s ease-in 0.5s;
     
+    opacity: ${({$size}) => $size > 1 ? 0 : 1};
 
     .btn_up {
         position: absolute;
