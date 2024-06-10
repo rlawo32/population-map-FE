@@ -13,7 +13,7 @@ const SeoulGuro = () => {
     const moveLocationHandler = (e:any, location:string) => {
         setMove(2);
 
-        setTimeout(() => {router.push(`/map/seoul/seoul-${location}`);}, 600)  
+        setTimeout(() => {router.push(`/map/seoul/seoul-${location}`);}, 600);
     }
     
     return (
