@@ -69,8 +69,8 @@ const TempZoomIn = () => {
 
     return (
         <BtnSection $x={x} $y={y} $size={size}>
-            <div className="btn_up" onClick={(e) => {setX(e.currentTarget.getBoundingClientRect().x + e.currentTarget.scrollLeft -200), 
-                                                     setY(e.currentTarget.getBoundingClientRect().y + e.currentTarget.scrollTop), 
+            <div className="btn_up" onClick={(e) => {setX(e.clientX - e.currentTarget.getBoundingClientRect().x), 
+                                                     setY(e.clientY - e.currentTarget.getBoundingClientRect().y), 
                                                      setSize(1.5), console.log(e.currentTarget.getBoundingClientRect())}}>up</div>
             <div className="btn_left" onClick={(e) => {setX(e.clientX), setY(e.clientY), setSize(1.5)}}>left</div>
             <div className="btn_right" onClick={(e) => {setX(e.clientX), setY(e.clientY), setSize(1.5)}}>right</div>
