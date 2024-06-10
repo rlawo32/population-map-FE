@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import * as styled from "./nationwide.style";
@@ -8,21 +8,16 @@ import * as styled from "./nationwide.style";
 const NationwclassNamee = () => {
     const router = useRouter();
 
-    const [x, setX] = useState<number>(0);
-    const [y, setY] = useState<number>(0);
-    const [size, setSize] = useState<number>(1);
+    const [move, setMove] = useState<number>(1);
 
     const moveLocationHandler = (e:any, location:string) => {
-        setX(e.currentTarget.getBoundingClientRect().x);
-        setY(e.currentTarget.getBoundingClientRect().y);
-        setSize(3);
-        console.log(e.currentTarget.pageXOffset)
+        setMove(3);
 
-        setTimeout(() => {router.push(`/map/${location}/${location}-main`);}, 1400)  
+        setTimeout(() => {router.push(`/map/${location}/${location}-main`);}, 600);
     }
 
     return (
-        <styled.moveLocation $x={x} $y={y} $size={size} $top={5} $left={10}>
+        <styled.moveLocation $move={move} $top={5} $left={10}>
             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="900px" height="1000px">
                 <g><path className="svg_map" fill="#a0ca60" d="M 637.5,212.5 C 639.167,212.5 640.833,212.5 642.5,212.5C 643.127,219.379 640.961,225.046 636,229.5C 634.577,226.408 632.243,224.408 629,223.5C 628.186,221.098 628.353,218.765 629.5,216.5C 632.259,215.121 634.925,213.787 637.5,212.5 Z"/></g>
                 <g><path className="svg_map" fill="#a3cc5b" d="M 122.5,227.5 C 125.346,227.03 127.679,227.863 129.5,230C 126.435,230.815 124.102,229.982 122.5,227.5 Z"/></g>

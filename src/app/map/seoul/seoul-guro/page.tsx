@@ -8,21 +8,16 @@ import * as styled from "./../../nationwide.style";
 const SeoulGuro = () => {
     const router = useRouter();
 
-    const [x, setX] = useState<number>(0);
-    const [y, setY] = useState<number>(0);
-    const [size, setSize] = useState<number>(1);
+    const [move, setMove] = useState<number>(1);
 
     const moveLocationHandler = (e:any, location:string) => {
-        setX(e.currentTarget.getBoundingClientRect().x + e.currentTarget.scrollLeft - 600);
-        setY(e.currentTarget.getBoundingClientRect().y + e.currentTarget.scrollTop - 150);
-        setSize(2);
-        console.log(e.currentTarget.getBoundingClientRect())
+        setMove(2);
 
-        setTimeout(() => {router.push(`/map/seoul/seoul-${location}`);}, 1400)  
+        setTimeout(() => {router.push(`/map/seoul/seoul-${location}`);}, 600)  
     }
     
     return (
-        <styled.moveLocation $x={x} $y={y} $size={size} $top={13} $left={0}>
+        <styled.moveLocation $move={move} $top={13} $left={0}>
             <div className="location_child">
                 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="640px" height="410px">
                     <g><path className="svg_map" fill="#fdfcfd" d="M 351.5,110.5 C 348.909,111.254 347.076,112.921 346,115.5C 343.622,121.635 341.456,127.801 339.5,134C 332.066,132.868 324.566,131.701 317,130.5C 314.476,131.178 312.309,132.512 310.5,134.5C 309.572,135.768 309.405,137.101 310,138.5C 311.946,139.747 313.78,141.08 315.5,142.5C 313.945,144.943 313.278,147.61 313.5,150.5C 307.437,149.583 301.437,148.749 295.5,148C 293.449,152.714 290.615,156.881 287,160.5C 287.16,164.815 285.994,168.649 283.5,172C 282.833,172.667 282.167,172.667 281.5,172C 277.402,165.901 272.069,161.234 265.5,158C 262.141,152.433 257.974,147.6 253,143.5C 248.79,132.749 243.79,122.415 238,112.5C 235.583,109.266 233.083,106.266 230.5,103.5C 236.261,101.723 239.595,97.7229 240.5,91.5C 242.332,90.7515 243.999,89.7515 245.5,88.5C 247.679,89.7567 249.679,91.2567 251.5,93C 253.167,93.6667 254.833,93.6667 256.5,93C 258.743,90.5122 260.743,87.8456 262.5,85C 266.716,83.7964 271.049,83.1298 275.5,83C 278.005,81.2467 280.671,79.7467 283.5,78.5C 288.459,80.764 293.459,82.9306 298.5,85C 299.46,86.4194 300.293,87.9194 301,89.5C 301.725,90.0585 302.558,90.3918 303.5,90.5C 309.683,88.0432 316.016,86.5432 322.5,86C 326.57,93.9738 330.236,102.141 333.5,110.5C 334.5,110.833 335.5,111.167 336.5,111.5C 345.297,109.852 352.797,105.852 359,99.5C 359.315,100.908 358.982,102.241 358,103.5C 354.926,105.071 352.76,107.404 351.5,110.5 Z"/></g>
