@@ -8,10 +8,10 @@ import * as styled from "./../../nationwide.style";
 const SeoulGuro = () => {
     const router = useRouter();
 
-    const [move, setMove] = useState<number>(1);
+    const [move, setMove] = useState<boolean>(false);
 
     const moveLocationHandler = (e:any, location:string) => {
-        setMove(2);
+        setMove(true);
 
         setTimeout(() => {router.push(`/map/seoul/seoul-${location}`);}, 600);
     }

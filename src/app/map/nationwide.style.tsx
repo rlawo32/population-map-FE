@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const moveLocation = styled('div')<{$move:number, $top:number, $left:number}>`
+export const moveLocation = styled('div')<{$move:boolean, $top:number, $left:number}>`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -18,7 +18,7 @@ export const moveLocation = styled('div')<{$move:number, $top:number, $left:numb
     
     transition: opacity .5s ease-in 0s;
     
-    opacity: ${({$move}) => $move > 1 ? 0 : 1};
+    opacity: ${({$move}) => $move ? 0 : 1};
 
     @keyframes fadein {
         from {
