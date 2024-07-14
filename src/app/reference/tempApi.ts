@@ -1,23 +1,28 @@
 import axios from "axios";
 
-const TempApi = (page:number, perPage:number):any => {
+import { createClient } from './../supabase';
 
-    const resource = axios({
-        method  : "GET",
-        url     : `https://api.odcloud.kr/api/15097972/v1/uddi:780a2373-bf11-4fb6-b3e4-ed4119571817?page=${page}&perPage=${perPage}`,
-        headers : {Authorization: 'Infuser 1zfm3O6MusH4xNmea2J41ZdYEpwMmwp4AOgUvyRJHU1bNOcyxF6VX17CZKFpJeBeJTtw++cKcEC7g+uguQI79g=='}
-    }).then((res):any => {
-        return Object.keys(res.data.data[0])[0];
-        // console.log(res.data);
-        // console.log(Object.keys(res.data.data[0])[0]);
-        // console.log(Object.values(res.data.data[0])[0]);
-    }).catch((err):any => {
-        console.log(err.message);
-    })
+const TempApi = async (page:number, perPage:number):Promise<void> => {
 
-    console.log(resource)
+    // const resource = axios({
+    //     method  : "GET",
+    //     // url     : `https://api.odcloud.kr/api/15097972/v1/uddi:780a2373-bf11-4fb6-b3e4-ed4119571817?page=${page}&perPage=${perPage}`,
+    //     url : "https://infuser.odcloud.kr/oas/docs?namespace=15097972/v1",
+    //     headers : {Authorization: 'Infuser 1zfm3O6MusH4xNmea2J41ZdYEpwMmwp4AOgUvyRJHU1bNOcyxF6VX17CZKFpJeBeJTtw++cKcEC7g+uguQI79g=='}
+    // }).then((res):any => {
+    //     // return Object.keys(res.data.data[0])[0];
+    //     console.log(res.data);
+    //     // console.log(res.data);
+    //     // console.log(Object.keys(res.data.data[0])[0]);
+    //     // console.log(Object.values(res.data.data[0])[0]);
+    // }).catch((err):any => {
+    //     console.log(err.message);
+    // })
 
-    return wrapPromise(resource);
+    const supabase = createClient();
+    const { data: notes } = await supabase.from("notes").select();
+
+    console.log(notes);
 }
 
 const wrapPromise = (promise:any) => {
