@@ -93,7 +93,11 @@ body {
 
 .svg_map:hover {
   cursor: pointer;
-  fill: red;
+  
+}
+
+.svg_map.data_view {
+  fill: blue;
 }
 
 a {

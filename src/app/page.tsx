@@ -8,8 +8,8 @@ import TempView from "./reference/tempView";
 export default function Home() {
   return (
     <main className={styles.main}>
-      {/* <Nationwide /> */}
-      <ReactKakaoMap />
+      <Nationwide />
+      {/* <ReactKakaoMap /> */}
       {/* <TempView /> */}
     </main>
   );
