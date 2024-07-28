@@ -60,7 +60,8 @@ const NationwclassNamee = () => {
                 </g>
 
                 <g>
-                    <path className="svg_map" fill="#a3cc5b" d="M 95.5,177.5 C 99.7018,177.384 103.702,178.217 107.5,180C 105.576,183.364 102.91,184.198 99.5,182.5C 97.6746,183.651 95.6746,184.318 93.5,184.5C 94.1667,182.167 94.8333,179.833 95.5,177.5 Z"/>
+                    <path className={isHovering ? "svg_map data_view" : "svg_map"} fill="#a3cc5b" onClick={(e) => moveLocationHandler(e, 'seoul')} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}
+                    d="M 95.5,177.5 C 99.7018,177.384 103.702,178.217 107.5,180C 105.576,183.364 102.91,184.198 99.5,182.5C 97.6746,183.651 95.6746,184.318 93.5,184.5C 94.1667,182.167 94.8333,179.833 95.5,177.5 Z"/>
                 </g>
 
                 <g>
