@@ -20,6 +20,19 @@ export const moveLocation = styled('div')<{$move:boolean, $top:number, $left:num
     
     opacity: ${({$move}) => $move ? 0 : 1};
 
+    svg {
+
+        .svg_map {
+            fill: grey;
+            transition: fill .5s ease;
+
+            &:hover {
+                fill: white;
+                cursor: pointer;
+            }
+        }
+    }
+
     @keyframes fadein {
         from {
             opacity: 0;
