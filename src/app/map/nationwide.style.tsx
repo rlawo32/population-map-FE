@@ -42,3 +42,16 @@ export const moveLocation = styled('div')<{$move:boolean, $top:number, $left:num
         }
     }
 `;
+
+export const Tooltip = styled('div')<{$x:number, $y:number, $z:boolean}>`
+    position: fixed;
+    font-size: 11px;
+    font-weight: bold;
+    color: red;
+    
+    top: ${({$y}) => $y}px;
+    left: ${({$x}) => $x}px;
+    transform: translate(-50%, -50%) ${({$z}) => $z ? "scale(1)" : "scale(0)"};
+    transition: .3s transform;
+    pointer-events: none;
+`;
