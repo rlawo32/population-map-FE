@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const moveLocation = styled('div')<{$move:boolean, $top:number, $left:number}>`
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
