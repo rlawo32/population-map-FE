@@ -1,13 +1,11 @@
 import styled from "styled-components";
 
-export const moveLocation = styled('div')<{$move:boolean, $top:number, $left:number}>`
+export const moveLocation = styled('div')`
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    margin-top: ${({$top}) => $top}rem;
-    margin-left: ${({$left}) => $left}rem;
     animation: fadein .3s ease-in;
     border: 2px solid red;
     
@@ -18,8 +16,6 @@ export const moveLocation = styled('div')<{$move:boolean, $top:number, $left:num
     // transition-delay: 0s, 0.5s; 딜레이
     
     transition: opacity .5s ease-in 0s;
-    
-    opacity: ${({$move}) => $move ? 0 : 1};
 
     svg {
 
