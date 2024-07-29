@@ -33,7 +33,7 @@ const NationwclassNamee = () => {
     };
 
     return (
-        <styled.moveLocation $move={move} $top={5} $left={10}>
+        <styled.moveLocation>
             <styled.Tooltip $x={x} $y={y} $z={z}>{location}</styled.Tooltip>
             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="900px" height="1000px">
                 <g><path className="svg_map" fill="#a0ca60" d="M 637.5,212.5 C 639.167,212.5 640.833,212.5 642.5,212.5C 643.127,219.379 640.961,225.046 636,229.5C 634.577,226.408 632.243,224.408 629,223.5C 628.186,221.098 628.353,218.765 629.5,216.5C 632.259,215.121 634.925,213.787 637.5,212.5 Z"/></g>
