@@ -2,16 +2,25 @@
 
 import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import supabase from "../supabase";
 
 import * as styled from "./nationwide.style";
 
 const NationwclassNamee = () => {
     const router = useRouter();
+    const client = supabase;
 
+    const [fade, setFade] = useState<boolean>(false);
     const [location, setLocation] = useState<string>("");
     const [x, setX] = useState<number>(0);
     const [y, setY] = useState<number>(0);
     const [z, setZ] = useState<boolean>(false);
+
+    const handleOnClick = (loc:string):void => {
+        setFade(true);
+        
+        setTimeout(() => {router.push(`/map/${loc}/${loc}-main`);}, 700); 
+    }
 
     const handleMouseOver = (e:React.MouseEvent, loc:string):void => {
         setLocation(loc);
@@ -20,7 +29,6 @@ const NationwclassNamee = () => {
             test?.children[0].removeAttribute("fill");
             test?.children[0].setAttributeNS("http://www.w3.org/2000/svg", "className", "test");
         }
-        
 
         const position = e.currentTarget.getBoundingClientRect();
         let addHeigth:number = 0;
@@ -40,7 +48,7 @@ const NationwclassNamee = () => {
     };
 
     return (
-        <styled.moveLocation>
+        <styled.moveLocation $fade={fade}>
             <styled.Tooltip $x={x} $y={y} $z={z}>{location}</styled.Tooltip>
             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="900px" height="1000px">
                 <g><path className="svg_map" fill="#a0ca60" d="M 637.5,212.5 C 639.167,212.5 640.833,212.5 642.5,212.5C 643.127,219.379 640.961,225.046 636,229.5C 634.577,226.408 632.243,224.408 629,223.5C 628.186,221.098 628.353,218.765 629.5,216.5C 632.259,215.121 634.925,213.787 637.5,212.5 Z"/></g>
@@ -70,9 +78,8 @@ const NationwclassNamee = () => {
 
                 {/* 서울 */}
                 <g>
-                    <path className="svg_map" fill="#a8d563" onMouseOver={(e) => handleMouseOver(e, "서울")} onMouseOut={handleMouseOut}
+                    <path className="svg_map" fill="#a8d563" onMouseOver={(e) => handleMouseOver(e, "서울")} onMouseOut={handleMouseOut} onClick={() => handleOnClick("seoul")}
                     d="M 213.5,200.5 C 217.167,200.5 220.833,200.5 224.5,200.5C 226.077,207.64 226.91,214.973 227,222.5C 229.866,224.893 232.866,224.893 236,222.5C 236.5,222.833 237,223.167 237.5,223.5C 234.428,228.439 232.262,233.772 231,239.5C 227.922,241.955 224.756,244.289 221.5,246.5C 219.368,244.187 216.868,242.52 214,241.5C 210.555,242.889 207.222,244.556 204,246.5C 198.668,246.828 194.835,244.661 192.5,240C 185.661,239.505 183.161,236.005 185,229.5C 177.173,226.898 176.506,223.231 183,218.5C 185.048,220.053 187.215,221.386 189.5,222.5C 191.708,221.137 194.041,219.97 196.5,219C 198.047,216.227 199.047,213.227 199.5,210C 202.961,209.865 206.294,210.199 209.5,211C 210.878,207.51 212.211,204.01 213.5,200.5 Z"/>
-                    <text>hello</text>
                 </g>
 
                 <g>
