@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-export const moveLocation = styled('div')`
+export const moveLocation = styled('div')<{$fade:boolean}>`
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    animation: fadein .3s ease-in;
+    animation: ${({$fade}) => $fade ? "fadeout .8s" : "fadein .5s"} ease-in;
     border: 2px solid red;
     
     // transition-property, transition duration, transition-timing-function, transition delay
@@ -36,6 +36,15 @@ export const moveLocation = styled('div')`
         }
         to {
             opacity: 1;
+        }
+    }
+
+    @keyframes fadeout {
+        from {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
         }
     }
 `;
