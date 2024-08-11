@@ -7,7 +7,8 @@ export const moveLocation = styled('div')<{$fade:boolean}>`
     justify-content: space-between;
     align-items: center;
     animation: ${({$fade}) => $fade ? "fadeout .8s" : "fadein .5s"} ease-in;
-    border: 2px solid red;
+    border-right: 2px solid red;
+    border-left: 2px solid red;
     
     // transition-property, transition duration, transition-timing-function, transition delay
     // transition-property: transform, opacity; 타겟

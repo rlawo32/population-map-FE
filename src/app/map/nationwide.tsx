@@ -8,7 +8,7 @@ import * as styled from "./nationwide.style";
 
 const NationwclassNamee = () => {
     const router = useRouter();
-    const client = supabase;
+    const client:any = supabase();
 
     const [fade, setFade] = useState<boolean>(false);
     const [location, setLocation] = useState<string>("");
@@ -47,8 +47,17 @@ const NationwclassNamee = () => {
         setZ(false);
     };
 
+    const test = async():Promise<void> => {
+        const {data:population_may, error} = await client
+            .from("population_may")
+            .select("pop_total")
+
+        console.log(population_may);
+    }
+
     return (
         <styled.moveLocation $fade={fade}>
+            <button onClick={() => test()}>test</button>
             <styled.Tooltip $x={x} $y={y} $z={z}>{location}</styled.Tooltip>
             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100vh" viewBox="0 0 700 1000" preserveAspectRatio="none">
                 <g><path className="svg_map" fill="#a0ca60" d="M 637.5,212.5 C 639.167,212.5 640.833,212.5 642.5,212.5C 643.127,219.379 640.961,225.046 636,229.5C 634.577,226.408 632.243,224.408 629,223.5C 628.186,221.098 628.353,218.765 629.5,216.5C 632.259,215.121 634.925,213.787 637.5,212.5 Z"/></g>
