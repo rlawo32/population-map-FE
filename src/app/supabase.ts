@@ -5,6 +5,6 @@ const client = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string
 )
 
-const supabase = () => client;
+const supabase = ():any => client;
 
 export default supabase;
