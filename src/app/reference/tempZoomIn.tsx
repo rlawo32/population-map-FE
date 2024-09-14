@@ -64,9 +64,6 @@ const TempZoomIn = () => {
     const [y, setY] = useState<number>(0);
     const [size, setSize] = useState<number>(1);
 
-    console.log(x);    
-    console.log(y);
-
     return (
         <BtnSection $x={x} $y={y} $size={size}>
             <div className="btn_up" onClick={(e) => {setX(e.clientX - e.currentTarget.getBoundingClientRect().x), 
