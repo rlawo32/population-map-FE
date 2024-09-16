@@ -36,6 +36,9 @@ const NationwclassNamee = () => {
         if(loc === '경기도') {
             addHeigth = -50;
         }
+        if(loc === '서울') {
+            addHeigth = 0;
+        }
         const hegith:number = (position.top + position.height / 2) + addHeigth;
         const width:number = (position.left + position.width / 2) + addWidth;
         setX(width);
