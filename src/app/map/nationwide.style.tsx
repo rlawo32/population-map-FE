@@ -3,12 +3,13 @@ import styled from "styled-components";
 export const moveLocation = styled('div')<{$fade:boolean}>`
     position: relative;
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
     align-items: center;
+
+    height: 100vh;
+    width: 100%;
+
     animation: ${({$fade}) => $fade ? "fadeout .8s" : "fadein .5s"} ease-in;
-    border-right: 2px solid red;
-    border-left: 2px solid red;
     
     // transition-property, transition duration, transition-timing-function, transition delay
     // transition-property: transform, opacity; 타겟
@@ -17,6 +18,34 @@ export const moveLocation = styled('div')<{$fade:boolean}>`
     // transition-delay: 0s, 0.5s; 딜레이
     
     transition: opacity .5s ease-in 0s;
+
+    .pop-left {
+        height: 100%;
+        width: 30%;
+        border: 2px solid red;
+    }
+
+    .pop-right {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+        border: 1px solid red;
+    
+        .pop-right-top {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 750px;
+            padding-top: 50px;
+            border: 1px solid red;
+        }
+
+        .pop-right-bottom {
+            height: 250px;
+            border: 1px solid red;
+        }
+    }
 
     svg {
 
