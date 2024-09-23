@@ -36,27 +36,27 @@ export const moveLocation = styled('div')<{$fade:boolean}>`
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 750px;
-            padding-top: 50px;
+            height: 600px;
+            padding: 20px 0 0 25px;
             border: 1px solid red;
         }
 
         .pop-right-bottom {
-            height: 250px;
+            height: 350px;
             border: 1px solid red;
         }
     }
 
     svg {
 
-        .svg_map {
+        g > .child_map {
             fill: grey;
             transition: fill .5s ease;
+        }
 
-            &:hover {
-                fill: white;
-                cursor: pointer;
-            }
+        .parent_map:hover > .child_map {
+            fill: white;
+            cursor: pointer;
         }
     }
 
