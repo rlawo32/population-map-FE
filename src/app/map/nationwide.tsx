@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import supabase from "../supabase";
 
@@ -15,6 +15,7 @@ const NationwclassNamee = () => {
     const [x, setX] = useState<number>(0);
     const [y, setY] = useState<number>(0);
     const [z, setZ] = useState<boolean>(false);
+    const [t, setT] = useState<boolean>(false);
 
     const handleOnClick = (loc:string):void => {
         setFade(true);
@@ -23,6 +24,7 @@ const NationwclassNamee = () => {
     }
 
     const handleMouseOver = (e:React.MouseEvent, loc:string):void => {
+        setZ(false);
         setLocation(loc);
         const test = e.currentTarget.parentElement;
         if(test !== null) {
@@ -44,6 +46,7 @@ const NationwclassNamee = () => {
         setX(width);
         setY(hegith);
         setZ(true);
+        setT(!t);
     };
 
     const handleMouseOut = ():void => {
@@ -62,13 +65,18 @@ const NationwclassNamee = () => {
         <styled.moveLocation $fade={fade}>
             <div className="pop-left">
                 TEST
+                <div className="tt-test">
+
+                </div>
             </div>
             <div className="pop-right">
                 <div className="pop-right-top">
-                <styled.Tooltip $x={x} $y={y} $z={z}>{location}</styled.Tooltip>
+                {/* {
+                    t ? <styled.Tooltip1 $x={x} $y={y} $z={z}></styled.Tooltip1> : <styled.Tooltip2 $x={x} $y={y} $z={z}></styled.Tooltip2>
+                } */}
+                {/* <styled.Tooltip1 $x={x} $y={y} $z={z}></styled.Tooltip1> */}
                 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="500px" height="100%" viewBox="0 0 900 1050" preserveAspectRatio="none">
-                  
-
+                    <line className="line" x1="0" y1="0" x2="0" y2="0" stroke="red" stroke-width="2" />
                     {/* 서울특별시 */}
                     <g className="parent_map">
                         <path className="child_map" fill="#a8d563" onMouseOver={(e) => handleMouseOver(e, "서울")} onMouseOut={handleMouseOut} onClick={() => handleOnClick("seoul")}

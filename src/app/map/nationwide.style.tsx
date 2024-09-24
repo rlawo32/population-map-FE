@@ -20,9 +20,41 @@ export const moveLocation = styled('div')<{$fade:boolean}>`
     transition: opacity .5s ease-in 0s;
 
     .pop-left {
+        position: relative;
         height: 100%;
         width: 30%;
         border: 2px solid red;
+
+        .tt-test {
+            position: absolute;
+            right: 200px;
+            bottom: 500px;
+            height: 50px;
+            width: 50px;
+            background-color: white;
+
+            &::before {
+                position: absolute;
+                top: 0;
+                left: 0;
+                content: '';
+                background-color: red;
+                height: 0;
+                width: 0;
+                transform-origin: 0 0;
+                transform: rotate(-115deg);
+                transition: width .4s ease;
+            }
+
+            &:hover {
+
+                &::before {
+                    height: 1px;
+                    width: 150px;
+                }
+            }
+            
+        }
     }
 
     .pop-right {
@@ -49,8 +81,8 @@ export const moveLocation = styled('div')<{$fade:boolean}>`
 
     svg {
 
-        g > .child_map {
-            fill: grey;
+        .child_map {
+            fill: gray;
             transition: fill .5s ease;
         }
 
@@ -79,15 +111,34 @@ export const moveLocation = styled('div')<{$fade:boolean}>`
     }
 `;
 
-export const Tooltip = styled('div')<{$x:number, $y:number, $z:boolean}>`
-    position: fixed;
-    font-size: 11px;
-    font-weight: bold;
-    color: red;
-    
-    top: ${({$y}) => $y}px;
-    left: ${({$x}) => $x}px;
-    transform: translate(-50%, -50%) ${({$z}) => $z ? "scale(1)" : "scale(0)"};
-    transition: .3s transform;
-    pointer-events: none;
+export const Tooltip1 = styled('div')<{$x:number, $y:number, $z:boolean}>`
+
+    &::before {
+        position: absolute;
+        top: ${({$y}) => $y}px;
+        left: ${({$x}) => $x}px;
+        content: '';
+        background-color: red;
+        ${({$z}) => $z ? "height: 1px;" : "height: 0;"};
+        ${({$z}) => $z ? "width: 150px;" : "width: 0;"};
+        transform-origin: 0 0;
+        transform: rotate(-115deg);
+        transition: width .7s ease;
+    }
+`;
+
+export const Tooltip2 = styled('div')<{$x:number, $y:number, $z:boolean}>`
+
+    &::before {
+        position: absolute;
+        top: ${({$y}) => $y}px;
+        left: ${({$x}) => $x}px;
+        content: '';
+        background-color: red;
+        ${({$z}) => $z ? "height: 1px;" : "height: 0;"};
+        ${({$z}) => $z ? "width: 150px;" : "width: 0;"};
+        transform-origin: 0 0;
+        transform: rotate(-115deg);
+        transition: width .7s ease;
+    }
 `;
