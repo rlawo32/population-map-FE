@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 
-import * as styled from "./testView1.style";
+import * as styled from "./lineDraw.style";
 
 const NationwclassNamee = () => {
     const router = useRouter();
