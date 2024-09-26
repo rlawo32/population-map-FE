@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 
-import * as styled from "./lineDraw.style";
+import * as styled from "./testView1.style";
 
 const NationwclassNamee = () => {
     const router = useRouter();
@@ -15,7 +15,6 @@ const NationwclassNamee = () => {
     const [z, setZ] = useState<number>(-1);
     const [t, setT] = useState<number>(-1);
     const [v, setV] = useState<number>(-1);
-    const [s, setS] = useState<number>(-1);
     const [g, setG] = useState<boolean>(false);
     const [f, setF] = useState<boolean>(false);
 
@@ -66,7 +65,6 @@ const NationwclassNamee = () => {
         setZ(-1);
         setT(-1);
         setV(-1);
-        setS(-1);
     };
 
     return (
@@ -82,10 +80,9 @@ const NationwclassNamee = () => {
                 {/* {
                     t ? <styled.Tooltip1 $x={x} $y={y} $z={z}></styled.Tooltip1> : <styled.Tooltip2 $x={x} $y={y} $z={z}></styled.Tooltip2>
                 } */}
-                <styled.Tooltip1 $x={x} $y={y} $z={z}></styled.Tooltip1>
-                <styled.Tooltip2 $x={x} $y={y} $t={t}></styled.Tooltip2>
-                <styled.Tooltip3 $x={x} $y={y} $v={v}></styled.Tooltip3>
-                <styled.Tooltip4 $x={x} $y={y} $s={s}></styled.Tooltip4>
+                <styled.Tooltip1 $x={x} $y={y} $z={z}><div className="tt_box">{location}</div></styled.Tooltip1>
+                <styled.Tooltip2 $x={x} $y={y} $t={t}><div className="tt_box">{location}</div></styled.Tooltip2>
+                <styled.Tooltip3 $x={x} $y={y} $v={v}><div className="tt_box">{location}</div></styled.Tooltip3>
                 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="500px" height="100%" viewBox="0 0 900 1050" preserveAspectRatio="none">
                     {/* 서울특별시 */}
                     <g className="parent_map">
