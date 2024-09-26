@@ -112,65 +112,108 @@ export const moveLocation = styled('div')<{$fade:boolean}>`
 `;
 
 export const Tooltip1 = styled('div')<{$x:number, $y:number, $z:number}>`
-
     &::before {
+        content: '';
         position: absolute;
         top: ${({$y}) => $y}px;
         left: ${({$x}) => $x}px;
-        content: '';
         background-color: red;
-        ${({$z}) => $z % 3 == 0 ? "height: 1px;" : "height: 0;"};
-        ${({$z}) => $z % 3 == 0 ? "width: 150px;" : "width: 0;"};
+        height: ${({$z}) => $z % 3 == 0 ? "1px" : "0"};
+        width: ${({$z}) => $z % 3 == 0 ? "70px" : "0"};
         transform-origin: 0 0;
         transform: rotate(-115deg);
         transition: width 1s ease;
+    }
+
+    .tt_box {
+        position: absolute;
+        top: ${({$y}) => $y-84}px;
+        left: ${({$x}) => $x-77}px;
+        color: red;
+        font-weight: light;
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            height: ${({$z}) => $z % 3 == 0 ? "1px" : "0"};
+            width: ${({$z}) => $z % 3 == 0 ? "50px" : "0"};
+            background-color: red;
+            transition: width .6s ease ${({$z}) => $z % 3 == 0 ? ".9s" : ""};
+        }
     }
 `;
 
 export const Tooltip2 = styled('div')<{$x:number, $y:number, $t:number}>`
-
     &::before {
+        content: '';
         position: absolute;
         top: ${({$y}) => $y}px;
         left: ${({$x}) => $x}px;
-        content: '';
         background-color: red;
-        ${({$t}) => $t % 3 == 1 ? "height: 1px;" : "height: 0;"};
-        ${({$t}) => $t % 3 == 1 ? "width: 150px;" : "width: 0;"};
+        height: ${({$t}) => $t % 3 == 1 ? "1px" : "0"};
+        width: ${({$t}) => $t % 3 == 1 ? "70px" : "0"};
         transform-origin: 0 0;
         transform: rotate(-115deg);
         transition: width 1s ease;
+    }
+
+    .tt_box {
+        position: absolute;
+        top: ${({$y}) => $y-84}px;
+        left: ${({$x}) => $x-77}px;
+        color: red;
+        font-weight: light;
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            height: ${({$t}) => $t % 3 == 1 ? "1px" : "0"};
+            width: ${({$t}) => $t % 3 == 1 ? "50px" : "0"};
+            background-color: red;
+            transition: width .6s ease ${({$t}) => $t % 3 == 1 ? ".9s" : ""};
+        }
     }
 `;
 
 export const Tooltip3 = styled('div')<{$x:number, $y:number, $v:number}>`
-
     &::before {
+        content: '';
         position: absolute;
         top: ${({$y}) => $y}px;
         left: ${({$x}) => $x}px;
-        content: '';
         background-color: red;
-        ${({$v}) => $v % 3 == 2 ? "height: 1px;" : "height: 0;"};
-        ${({$v}) => $v % 3 == 2 ? "width: 150px;" : "width: 0;"};
+        height: ${({$v}) => $v % 3 == 2 ? "1px" : "0"};
+        width: ${({$v}) => $v % 3 == 2 ? "70px" : "0"};
         transform-origin: 0 0;
         transform: rotate(-115deg);
         transition: width 1s ease;
     }
-`;
 
-export const Tooltip4 = styled('div')<{$x:number, $y:number, $s:number}>`
-
-    &::before {
+    .tt_box {
         position: absolute;
-        top: ${({$y}) => $y}px;
-        left: ${({$x}) => $x}px;
-        content: '';
-        background-color: red;
-        ${({$s}) => $s % 3 == 0 ? "height: 1px;" : "height: 0;"};
-        ${({$s}) => $s % 3 == 0 ? "width: 150px;" : "width: 0;"};
-        transform-origin: 0 0;
-        transform: rotate(-115deg);
-        transition: width 1s ease;
+        top: ${({$y}) => $y-84}px;
+        left: ${({$x}) => $x-77}px;
+        color: red;
+        font-weight: light;
+        opacity: ${({$v}) => $v % 3 == 2 ? "1" : "0"};
+        transition: opacity .3s ease ${({$v}) => $v % 3 == 2 ? ".9s" : ""};
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            height: ${({$v}) => $v % 3 == 2 ? "1px" : "0"};
+            width: ${({$v}) => $v % 3 == 2 ? "50px" : "0"};
+            background-color: red;
+            transition: width .6s ease ${({$v}) => $v % 3 == 2 ? ".9s" : ""};
+        }
     }
 `;
