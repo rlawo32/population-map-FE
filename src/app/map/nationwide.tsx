@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 
-import * as styled from "./testView1.style";
+import * as styled from "./nationwide.style";
 
 const NationwclassNamee = () => {
     const router = useRouter();
@@ -91,7 +91,6 @@ const NationwclassNamee = () => {
                 </div>
             </div>
             <div className="pop-right">
-            {location}
                 <div className="pop-right-top">
                 {/* {
                     t ? <styled.Tooltip1 $x={x} $y={y} $z={z}></styled.Tooltip1> : <styled.Tooltip2 $x={x} $y={y} $z={z}></styled.Tooltip2>
