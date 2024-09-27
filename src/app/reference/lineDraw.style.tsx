@@ -187,33 +187,33 @@ export const Tooltip3 = styled('div')<{$x:number, $y:number, $v:number}>`
         position: absolute;
         top: ${({$y}) => $y}px;
         left: ${({$x}) => $x}px;
-        background-color: red;
-        height: ${({$v}) => $v % 3 == 2 ? "1px" : "0"};
+        height: ${({$v}) => $v % 3 == 2 ? "20px" : "0"};
         width: ${({$v}) => $v % 3 == 2 ? "70px" : "0"};
+        border-top: 1px solid red;
+        border-right: 1px solid red;
         transform-origin: 0 0;
-        transform: rotate(-115deg);
-        transition: width 1s ease;
+        transform: skewX(20deg) scaleX(-1) rotate(-90deg);
+        transition-property: height, width; 
+        transition-duration: .3s, .3s;
+        transition-timing-function: ease-in, ease-in; 
+        transition-delay: ${({$v}) => $v % 3 == 2 ? ".15s, 0s" : "0s, .25s"}; 
     }
 
     .tt_box {
         position: absolute;
-        top: ${({$y}) => $y-84}px;
-        left: ${({$x}) => $x-77}px;
+        top: ${({$y}) => $y-80}px;
+        left: ${({$x}) => $x-95}px;
         color: red;
-        font-weight: light;
-        opacity: ${({$v}) => $v % 3 == 2 ? "1" : "0"};
-        transition: opacity .3s ease ${({$v}) => $v % 3 == 2 ? ".9s" : ""};
+        animation: ${({$v}) => $v % 3 == 2 ? "fadeUp 2s" : "fade_down 2s"};
+    }
 
-        &::after {
-            content: '';
-            display: block;
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            height: ${({$v}) => $v % 3 == 2 ? "1px" : "0"};
-            width: ${({$v}) => $v % 3 == 2 ? "50px" : "0"};
-            background-color: red;
-            transition: width .6s ease ${({$v}) => $v % 3 == 2 ? ".9s" : ""};
-        }
+    @keyframes fadeUp {
+        0% { opacity: 0; transform: translateX(100%); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes fadeDown {
+        0% { opacity: 1; transform: translateX(0); }
+        to { opacity: 0; transform: translateX(100%); }
     }
 `;
