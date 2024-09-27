@@ -115,6 +115,7 @@ export const moveLocation = styled('div')<{$fade:boolean}>`
 export const Tooltip = styled('div')<{$x:number, $y:number, $z:boolean, $r:boolean}>`
     &::before {
         content: '';
+        content: '';
         position: absolute;
         top: ${({$y}) => $y}px;
         left: ${({$x}) => $x}px;
