@@ -11,7 +11,6 @@ export const ViewMain = styled('div')`
     .pop-left {
         height: 100%;
         width: 30%;
-        border: 2px solid red;
     }
 
     .pop-right {
@@ -19,14 +18,13 @@ export const ViewMain = styled('div')`
         flex-direction: column;
         height: 100%;
         width: 70%;
-        border: 1px solid red;
     
         .pop-right-top {
+            background-color: rgba(0, 127, 255, .3);
         }
 
         .pop-right-bottom {
             height: 350px;
-            border: 1px solid red;
         }
     }
 `;

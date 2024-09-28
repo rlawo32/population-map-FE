@@ -9,5 +9,7 @@
 
 .view {
   position: relative;
+  padding: 25px;
+  background-color: whitesmoke;
 }
 
