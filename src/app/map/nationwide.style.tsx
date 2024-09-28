@@ -7,8 +7,6 @@ export const moveLocation = styled('div')<{$fade:boolean}>`
     height: 600px;
     width: 100%;
     padding: 20px 0 0 25px;
-    border: 1px solid red;
-    box-sizing: border-box;
 
     animation: ${({$fade}) => $fade ? "fadeout .8s" : "fadein .5s"} ease-in;
     
@@ -18,18 +16,22 @@ export const moveLocation = styled('div')<{$fade:boolean}>`
     // transition-timing-function: ease-in, ease-in; 동작방식
     // transition-delay: 0s, 0.5s; 딜레이
     
-    transition: opacity .5s ease-in 0s;
+    transition: opacity .4s ease-in 0s;
 
     svg {
 
         .child_map {
-            fill: gray;
+            fill: beige;
             transition: fill .5s ease;
         }
 
         .parent_map:hover > .child_map {
             fill: white;
             cursor: pointer;
+        }
+
+        .svg_line {
+            fill: rgba(0, 127, 255, .3);
         }
     }
 
@@ -62,8 +64,9 @@ export const Tooltip = styled('div')<{$x:number, $y:number, $w:number, $h:number
         left: ${({$x}) => $x}px;
         height: ${({$t, $h}) => $t ? 20+$h : 0}px;
         width: ${({$t, $w}) => $t ? 70+$w : 0}px;
-        border-top: ${({$t}) => $t ? "1px solid red" : ""};
-        border-right: ${({$t}) => $t ? "1px solid red" : ""};
+        border-top: ${({$t}) => $t ? "1.5px solid black" : ""};
+        border-right: ${({$t}) => $t ? "1.5px solid black" : ""};
+        border-top-right-radius: 3px;
         transform-origin: 0 0;
         transform: ${({$r}) => $r ? "skewX(-20deg) scaleX(1)" : "skewX(20deg) scaleX(-1)"} rotate(-90deg);
     }
@@ -72,7 +75,8 @@ export const Tooltip = styled('div')<{$x:number, $y:number, $w:number, $h:number
         position: absolute;
         top: ${({$y, $w}) => ($y-82)-$w}px;
         left: ${({$x, $r, $w, $h}) => $r ? ($x+50)+($w/2)+$h : ($x-140)-($w/2)-$h}px;
-        color: red;
+        color: black;
+        font-weight: 500;
         text-align: ${({$r}) => $r ? "left" : "right"};
         width: 90px;
     }
