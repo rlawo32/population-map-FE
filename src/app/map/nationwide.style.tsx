@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
 export const moveLocation = styled('div')<{$fade:boolean}>`
-    position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-
-    height: 100vh;
+    height: 600px;
     width: 100%;
+    padding: 20px 0 0 25px;
+    border: 1px solid red;
+    box-sizing: border-box;
 
     animation: ${({$fade}) => $fade ? "fadeout .8s" : "fadein .5s"} ease-in;
     
@@ -18,67 +19,6 @@ export const moveLocation = styled('div')<{$fade:boolean}>`
     // transition-delay: 0s, 0.5s; 딜레이
     
     transition: opacity .5s ease-in 0s;
-
-    .pop-left {
-        position: relative;
-        height: 100%;
-        width: 30%;
-        border: 2px solid red;
-
-        .tt-test {
-            position: absolute;
-            right: 200px;
-            bottom: 500px;
-            height: 50px;
-            width: 50px;
-            background-color: white;
-            color: red;
-
-            &::before {
-                position: absolute;
-                top: 0;
-                left: 0;
-                content: '';
-                background-color: red;
-                height: 0;
-                width: 0;
-                transform-origin: 0 0;
-                transform: rotate(-115deg);
-                transition: width .4s ease;
-            }
-
-            &:hover {
-
-                &::before {
-                    height: 1px;
-                    width: 150px;
-                }
-            }
-            
-        }
-    }
-
-    .pop-right {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        width: 70%;
-        border: 1px solid red;
-    
-        .pop-right-top {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 600px;
-            padding: 20px 0 0 25px;
-            border: 1px solid red;
-        }
-
-        .pop-right-bottom {
-            height: 350px;
-            border: 1px solid red;
-        }
-    }
 
     svg {
 
@@ -112,7 +52,7 @@ export const moveLocation = styled('div')<{$fade:boolean}>`
     }
 `;
 
-export const Tooltip = styled('div')<{$x:number, $y:number, $z:boolean, $r:boolean}>`
+export const Tooltip = styled('div')<{$x:number, $y:number, $w:number, $h:number, $t:boolean, $r:boolean}>`
     pointer-events: none;
     &::before {
         content: '';
@@ -120,20 +60,21 @@ export const Tooltip = styled('div')<{$x:number, $y:number, $z:boolean, $r:boole
         position: absolute;
         top: ${({$y}) => $y}px;
         left: ${({$x}) => $x}px;
-        height: ${({$z}) => $z ? "20px" : "0"};
-        width: ${({$z}) => $z ? "70px" : "0"};
-        border-top: ${({$z}) => $z ? "1px solid red" : ""};
-        border-right: ${({$z}) => $z ? "1px solid red" : ""};
+        height: ${({$t, $h}) => $t ? 20+$h : 0}px;
+        width: ${({$t, $w}) => $t ? 70+$w : 0}px;
+        border-top: ${({$t}) => $t ? "1px solid red" : ""};
+        border-right: ${({$t}) => $t ? "1px solid red" : ""};
         transform-origin: 0 0;
         transform: ${({$r}) => $r ? "skewX(-20deg) scaleX(1)" : "skewX(20deg) scaleX(-1)"} rotate(-90deg);
     }
 
     .tt_box {
         position: absolute;
-        top: ${({$y}) => $y-82}px;
-        left: ${({$x, $r}) => $r ? $x+50 : $x-140}px;
+        top: ${({$y, $w}) => ($y-82)-$w}px;
+        left: ${({$x, $r, $w, $h}) => $r ? ($x+50)+($w/2)+$h : ($x-140)-($w/2)-$h}px;
         color: red;
         text-align: ${({$r}) => $r ? "left" : "right"};
         width: 90px;
     }
 `;
+
