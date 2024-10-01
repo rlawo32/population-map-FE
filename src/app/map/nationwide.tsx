@@ -5,9 +5,11 @@ import { useRouter } from "next/navigation";
 
 import * as styled from "./nationwide.style";
 import useLocationDataStore from "../stores/useLocationDataStore";
+import supabase from "../supabase";
 
 const Nationwide = () => {
     const router = useRouter();
+    const client:any = supabase();
 
     const [fade, setFade] = useState<boolean>(false);
     const [location, setLocation] = useState<string>("");
@@ -18,7 +20,7 @@ const Nationwide = () => {
     const [t, setT] = useState<boolean>(false);
     const [r, setR] = useState<boolean>(false);
 
-    const {setMonth, setColumn} = useLocationDataStore();
+    const {month, setMonth, column, setColumn} = useLocationDataStore();
 
     const handleOnClick = (loc:string):void => {
         setFade(true);
@@ -63,8 +65,20 @@ const Nationwide = () => {
     };
 
     useEffect(() => {
-        setMonth("population_jul");
-        setColumn("pop_total");
+        console.log("hello");
+
+        const test = async():Promise<any> => {
+            let {data:population_jul_total, error} = await client
+                .from("population_jul_total")
+                .select("pop_total")
+                .eq("pop_place", "전체")
+
+            return population_jul_total;
+        }
+
+        test().then((data) => {
+            console.log(data[0].pop_total);
+        })
     }, [])
 
     return (
