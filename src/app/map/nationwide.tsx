@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import * as styled from "./nationwide.style";
+import useLocationDataStore from "../stores/useLocationDataStore";
 
 const Nationwide = () => {
     const router = useRouter();
@@ -16,6 +17,8 @@ const Nationwide = () => {
     const [h, setH] = useState<number>(0); 
     const [t, setT] = useState<boolean>(false);
     const [r, setR] = useState<boolean>(false);
+
+    const {setMonth, setColumn} = useLocationDataStore();
 
     const handleOnClick = (loc:string):void => {
         setFade(true);
@@ -58,6 +61,11 @@ const Nationwide = () => {
         setT(false);
         setLocation("");
     };
+
+    useEffect(() => {
+        setMonth("population_jul");
+        setColumn("pop_total");
+    }, [])
 
     return (
         <styled.moveLocation $fade={fade}>

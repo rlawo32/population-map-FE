@@ -1,23 +1,22 @@
-'use client';
+import styles from "../../page.module.css";
 
-import * as Styles from "./page.style"
 import Nationwide from "@/app/map/nationwide";
 
 const ViewMain = () => {
 
     return (
-        <Styles.ViewMain>
-            <div className="pop-left">
+        <div className={styles.view}>
+            <div className={styles.popLeft}>
             </div>
-            <div className="pop-right">
-                <div className="pop-right-top">
+            <div className={styles.popRight}>
+                <div className={styles.popRightTop}>
                     <Nationwide />
                 </div>
-                <div className="pop-right-bottom">
+                <div className={styles.popRightBottom}>
                     TEST
                 </div>
             </div>
-        </Styles.ViewMain>
+        </div>
     )
 }
 
