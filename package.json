@@ -19,7 +19,8 @@
     "react-dom": "^18",
     "react-kakao-maps-sdk": "^1.1.27",
     "react-quill": "^2.0.0",
-    "styled-components": "^6.1.11"
+    "styled-components": "^6.1.11",
+    "zustand": "^5.0.0-rc.2"
   },
   "devDependencies": {
     "@types/node": "^20",
