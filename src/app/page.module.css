@@ -1,15 +1,37 @@
 .main {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
+  position: relative;
+  padding: 25px;
+  background-color: whitesmoke;
   padding: 0;
   margin: 0;
 }
 
 .view {
-  position: relative;
-  padding: 25px;
-  background-color: whitesmoke;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+.popLeft {
+  height: 100%;
+  width: 30%;
+}
+
+.popRight {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 70%;
+}
+
+.popRightTop {
+  background-color: rgba(0, 127, 255, .3);
+}
+
+.popRightBottom {
+  height: 350px;
 }
 
