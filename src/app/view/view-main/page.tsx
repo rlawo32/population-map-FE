@@ -1,6 +1,7 @@
 import styles from "../../page.module.css";
 
 import Nationwide from "@/app/map/nationwide";
+import ViewSub1 from "../view-sub1/page";
 
 const ViewMain = () => {
 
@@ -13,7 +14,7 @@ const ViewMain = () => {
                     <Nationwide />
                 </div>
                 <div className={styles.popRightBottom}>
-                    TEST
+                    <ViewSub1 />
                 </div>
             </div>
         </div>
