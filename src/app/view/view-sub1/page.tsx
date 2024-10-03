@@ -10,7 +10,6 @@ const ViewSub1 = () => {
 
     const {month, setMonth, column, setColumn} = useLocationDataStore();
     const [viewSub1Data, setViewSub1Data] = useState<number>(0);
-    const [count, setCount] = useState<number>(0)
     
     useEffect(() => {
         const frameRate = 1000/60;
@@ -28,16 +27,13 @@ const ViewSub1 = () => {
         }
 
         test().then((data) => {
-            setViewSub1Data(data[0].pop_total);
-            console.log(data[0].pop_total);
             num = Math.round(data[0].pop_total);
         });
-        // setInterval로 setCount
+        
         const counter = setInterval(() => {
             const progressRate = ++currentNumber / totalFrame;
-            setCount(Math.round(num * progressRate));
+            setViewSub1Data(Math.round(num * progressRate));
 
-            // 진행 완료시 interval 해제
             if (progressRate === 1) {
                 clearInterval(counter);
             }
@@ -46,7 +42,7 @@ const ViewSub1 = () => {
 
     return (
         <div>
-            {count}
+            {viewSub1Data}
         </div>
     )
 }
