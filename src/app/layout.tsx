@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
-// STYEL-COMPONENT 로딩 이슈 해결
+// STYLED-COMPONENT 로딩 이슈 해결
 import StyledComponentsRegistry from "./StyledComponentsRegistry";
 
 const inter = Inter({ subsets: ["latin"] });
