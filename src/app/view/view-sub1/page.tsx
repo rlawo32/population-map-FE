@@ -77,7 +77,8 @@ const ViewSub1 = () => {
 
     return (
         <Styled.ViewSub1>
-            <Doughnut data={data} options={options} /> 
+            <Bar data={data} options={options} /> 
+            <Bar data={data} options={options} /> 
         </Styled.ViewSub1>
     )
 }
