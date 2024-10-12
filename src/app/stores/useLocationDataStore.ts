@@ -7,6 +7,10 @@ interface locationDataStore {
     setLocation:(value:string) => void;
     column:string;
     setColumn:(value:string) => void;
+    table:string;
+    setTable:(value:string) => void;
+    query:string;
+    setQuery:(value:string) => void;
 }
 
 const useLocationDataStore = create<locationDataStore>((set) => ({
@@ -21,6 +25,14 @@ const useLocationDataStore = create<locationDataStore>((set) => ({
     column: "",
     setColumn: (value:string) => set((state: {column:string}) => ({
         column: (state.column = value),
+    })),
+    table: "",
+    setTable: (value:string) => set((state: {table:string}) => ({
+        table: (state.table = value),
+    })),
+    query: "",
+    setQuery: (value:string) => set((state: {query:string}) => ({
+        query: (state.query = value),
     }))
 }));
 
