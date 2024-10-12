@@ -11,7 +11,7 @@
   justify-content: space-between;
   align-items: center;
   height: 100vh;
-  padding: 0;
+  padding: 20px;
   margin: 0;
 }
 
@@ -28,7 +28,8 @@
 }
 
 .popRightTop {
-  background-color: rgba(0, 127, 255, .3);
+  background-color: rgba(0, 127, 255, .2);
+  border-radius: 15px;
 }
 
 .popRightBottom {
