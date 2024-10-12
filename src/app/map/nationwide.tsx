@@ -11,6 +11,8 @@ const Nationwide = () => {
 
     const [fade, setFade] = useState<boolean>(false);
     const [location, setLocation] = useState<string>("");
+
+    // x: x좌표, y: y좌표, w: 막대세로길이, h: 막대가로길이, t: 툴팁 on/off, r: 막대반전여부
     const [x, setX] = useState<number>(0);
     const [y, setY] = useState<number>(0);
     const [w, setW] = useState<number>(0);

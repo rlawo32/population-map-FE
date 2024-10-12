@@ -7,6 +7,7 @@ export const moveLocation = styled('div')<{$fade:boolean}>`
     height: 600px;
     width: 100%;
     padding: 20px 0 0 25px;
+    box-sizing: border-box;
 
     animation: ${({$fade}) => $fade ? "fadeout .8s" : "fadein .5s"} ease-in;
     
@@ -19,6 +20,7 @@ export const moveLocation = styled('div')<{$fade:boolean}>`
     transition: opacity .4s ease-in 0s;
 
     svg {
+        margin-left: 100px;
 
         .child_map {
             fill: beige;
