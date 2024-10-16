@@ -1,20 +1,31 @@
 'use client';
 
-const counting = (num:number) => {
-    const frameRate:number = 1000/60;
-    let currentNumber:number = 0;
-    let totalFrame:number = 80;
-    let roundNum:number = Math.round(num);;
-    let result:number = 0;
-        
-    const counter = setInterval(() => {
-        const progressRate = ++currentNumber / totalFrame;
-        result = Math.round(roundNum * progressRate);
+import { useEffect, useState } from "react";
 
-        if (progressRate === 1) {
-            clearInterval(counter);
-        }
-    }, frameRate);
+const Counting = (props:{num:number;}) => {
+    const [resultData, setResultData] = useState<number>(0);
+
+    useEffect(() => {
+        const frameRate:number = 1000/60;
+        let currentNumber:number = 0;
+        let totalFrame:number = 80;
+        let roundNum:number = Math.round(props.num);
+        
+        const counter = setInterval(() => {
+            const progressRate = ++currentNumber / totalFrame;
+            setResultData(Math.round(roundNum * progressRate));
+    
+            if (progressRate === 1) {
+                clearInterval(counter);
+            }
+        }, frameRate);
+    }, [])
+
+    return (
+        <div>
+            {resultData}
+        </div>
+    )
 }
 
-export default counting;
+export default Counting;

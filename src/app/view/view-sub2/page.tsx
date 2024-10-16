@@ -7,6 +7,7 @@ import { Bar, Chart, Line, Doughnut } from "react-chartjs-2";
 import 'chart.js/auto';
 
 import * as Styled from "./page.style";
+import Counting from "../Counting";
 
 const ViewSub2 = () => {
     const client:any = supabase();
@@ -57,7 +58,7 @@ const ViewSub2 = () => {
                         현재 지역
                     </div>
                     <div className="vs_content">
-                        {locationData}
+                        <Counting num={200000} />
                     </div>
                 </div>
                 <div className="vs_total_default">
@@ -65,7 +66,7 @@ const ViewSub2 = () => {
                         전체
                     </div>
                     <div className="vs_content">
-                        {totalData}
+                        <Counting num={100000} />
                     </div>
                 </div>
                 <div className="vs_total_gender">
@@ -74,7 +75,7 @@ const ViewSub2 = () => {
                             남
                         </div>
                         <div className="vs_content">
-                            {mTotalData}
+                            {viewSub1Data}
                         </div>
                     </div>
                     <div className="vs_total_w">
