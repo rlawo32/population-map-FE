@@ -21,11 +21,6 @@ const ViewSub2 = () => {
     const [wTotalData, setWTotalData] = useState<number>(0);
     
     useEffect(() => {
-        const frameRate = 1000/60;
-        let currentNumber = 0;
-        let totalFrame = 80;
-        let num = 0;
-
         const test = async():Promise<any> => {
             let {data:population_jul_total, error} = await client
                 .from("population_jul_total")
@@ -36,17 +31,8 @@ const ViewSub2 = () => {
         }
 
         test().then((data) => {
-            num = Math.round(data[0].pop_total);
+            setTotalData(data[0].pop_total);
         });
-        
-        const counter = setInterval(() => {
-            const progressRate = ++currentNumber / totalFrame;
-            setViewSub1Data(Math.round(num * progressRate));
-
-            if (progressRate === 1) {
-                clearInterval(counter);
-            }
-        }, frameRate);
     }, [])
 
     return (
@@ -75,7 +61,8 @@ const ViewSub2 = () => {
                             남
                         </div>
                         <div className="vs_content">
-                            {viewSub1Data}
+                            {totalData > 0 ? <Counting num={totalData} /> : <></>}
+                            
                         </div>
                     </div>
                     <div className="vs_total_w">
