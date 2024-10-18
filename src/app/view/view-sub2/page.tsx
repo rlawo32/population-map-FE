@@ -77,6 +77,7 @@ const ViewSub2 = () => {
             </div>
             <div className="vs_mid">
 
+                            {wTotalData}
             </div>
             <div className="vs_bot">
 
