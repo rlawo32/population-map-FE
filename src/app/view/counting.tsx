@@ -8,7 +8,7 @@ const Counting = (props:{num:number;}) => {
     useEffect(() => {
         const frameRate:number = 1000/60;
         let currentNumber:number = 0;
-        let totalFrame:number = 250;
+        let totalFrame:number = 150;
         let roundNum:number = Math.round(props.num);
         
         const counter = setInterval(() => {
@@ -23,7 +23,7 @@ const Counting = (props:{num:number;}) => {
 
     return (
         <div>
-            {resultData}
+            {resultData.toLocaleString('ko-KR')}
         </div>
     )
 }
