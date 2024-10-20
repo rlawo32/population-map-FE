@@ -21,7 +21,7 @@ const ViewSub2 = () => {
     const [wTotalData, setWTotalData] = useState<number>(0);
     
     useEffect(() => {
-        const test = async():Promise<any> => {
+        const popTotal = async():Promise<any> => {
             let {data:population_jul_total, error} = await client
                 .from("population_jul_total")
                 .select("pop_total")
@@ -30,8 +30,34 @@ const ViewSub2 = () => {
             return population_jul_total;
         }
 
-        test().then((data) => {
+        popTotal().then((data) => {
             setTotalData(data[0].pop_total);
+        });
+
+        const popMTotal = async():Promise<any> => {
+            let {data:population_jul_total, error} = await client
+                .from("population_jul_total")
+                .select("pop_total_m")
+                .eq("pop_place", "전체")
+
+            return population_jul_total;
+        }
+
+        popMTotal().then((data) => {
+            setMTotalData(data[0].pop_total_m);
+        });
+
+        const popWTotal = async():Promise<any> => {
+            let {data:population_jul_total, error} = await client
+                .from("population_jul_total")
+                .select("pop_total_w")
+                .eq("pop_place", "전체")
+
+            return population_jul_total;
+        }
+
+        popWTotal().then((data) => {
+            setWTotalData(data[0].pop_total_w);
         });
     }, [])
 
@@ -52,7 +78,7 @@ const ViewSub2 = () => {
                         전체
                     </div>
                     <div className="vs_content">
-                        <Counting num={100000} />
+                        {totalData > 0 ? <Counting num={totalData} /> : <></>}
                     </div>
                 </div>
                 <div className="vs_total_gender">
@@ -61,8 +87,7 @@ const ViewSub2 = () => {
                             남
                         </div>
                         <div className="vs_content">
-                            {totalData > 0 ? <Counting num={totalData} /> : <></>}
-                            
+                            {mTotalData > 0 ? <Counting num={mTotalData} /> : <></>}
                         </div>
                     </div>
                     <div className="vs_total_w">
@@ -70,7 +95,7 @@ const ViewSub2 = () => {
                             여
                         </div>
                         <div className="vs_content">
-                            {wTotalData}
+                            {wTotalData > 0 ? <Counting num={wTotalData} /> : <></>}
                         </div>
                     </div>
                 </div>
