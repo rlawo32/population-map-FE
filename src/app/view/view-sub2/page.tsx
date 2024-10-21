@@ -70,7 +70,7 @@ const ViewSub2 = () => {
                         현재 지역
                     </div>
                     <div className="vs_content">
-                        <Counting num={200000} />
+                        
                     </div>
                 </div>
                 <div className="vs_total_default">
