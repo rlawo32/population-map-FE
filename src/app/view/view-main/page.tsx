@@ -1,17 +1,12 @@
-'use client';
-
 import styles from "../../page.module.css";
 
-import Nationwide from "@/app/map/nationwide";
-import SeoulMain from "@/app/map/seoul/seoul-main/page";
+import Map from "@/app/map/page";
 import ViewSub1 from "../view-sub1/page";
 import ViewSub2 from "../view-sub2/page";
 
 import useLocationDataStore from "@/app/stores/useLocationDataStore";
 
 const ViewMain = () => {
-
-    const {location, setMonth, column, setColumn} = useLocationDataStore();
 
     return (
         <div className={styles.view}>
@@ -20,9 +15,7 @@ const ViewMain = () => {
             </div>
             <div className={styles.popRight}>
                 <div className={styles.popRightTop}>
-                    {
-                        location === 'seoul' ? <SeoulMain /> : <Nationwide />
-                    }
+                    <Map />
                 </div>
                 <div className={styles.popRightBottom}>
                     <ViewSub1 />
