@@ -10,7 +10,7 @@ const Nationwide = () => {
     const router = useRouter();
 
     const [fade, setFade] = useState<boolean>(false);
-    const [location, setLocation] = useState<string>("");
+    const [locationName, setLocationName] = useState<string>("");
 
     // x: x좌표, y: y좌표, w: 막대세로길이, h: 막대가로길이, t: 툴팁 on/off, r: 막대반전여부
     const [x, setX] = useState<number>(0);
@@ -20,19 +20,20 @@ const Nationwide = () => {
     const [t, setT] = useState<boolean>(false);
     const [r, setR] = useState<boolean>(false);
 
-    const {month, setMonth, column, setColumn} = useLocationDataStore();
+    const {month, setMonth, column, setColumn, setLocation} = useLocationDataStore();
 
     const handleOnClick = (loc:string):void => {
         setFade(true);
         
-        setTimeout(() => {router.push(`/map/${loc}/${loc}-main`);}, 700); 
+        //setTimeout(() => {router.push(`/map/${loc}/${loc}-main`);}, 700); 
+        setTimeout(() => {setLocation(loc)}, 700)
     }
 
     const handleMouseOver = (e:React.MouseEvent, loc:string):void => {
         let addHeigth:number = 0;
         let addWidth:number = 0;
 
-        setLocation(loc);
+        setLocationName(loc);
         setW(0);
         setH(0);
         setR(false);
@@ -66,7 +67,7 @@ const Nationwide = () => {
 
     return (
         <styled.moveLocation $fade={fade}>
-            <styled.Tooltip $x={x} $y={y} $t={t} $r={r} $w={w} $h={h}><div className="tt_box">{location}</div></styled.Tooltip>
+            <styled.Tooltip $x={x} $y={y} $t={t} $r={r} $w={w} $h={h}><div className="tt_box">{locationName}</div></styled.Tooltip>
             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="500px" height="100%" viewBox="0 0 900 1050" preserveAspectRatio="none">
                 {/* 서울특별시 */}
                 <g className="parent_map">
