@@ -16,7 +16,19 @@ const ViewMain = () => {
             {
                 location === 'seoul'    ? <SeoulMain /> :
                 location === 'guro'     ? <SeoulGuro /> :
-                
+                location === ''         ? <></>         :
+                location === ''         ? <></>         :
+                location === ''         ? <></>         :
+                location === ''         ? <></>         :
+                location === ''         ? <></>         :
+                location === ''         ? <></>         :
+                location === ''         ? <></>         :
+                location === ''         ? <></>         :
+                location === ''         ? <></>         :
+                location === ''         ? <></>         :
+                location === ''         ? <></>         :
+                location === ''         ? <></>         :
+                location === ''         ? <></>         :
                 
                 <Nationwide />
             }
