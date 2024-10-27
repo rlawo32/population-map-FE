@@ -14,17 +14,33 @@ const ViewMain = () => {
     return (
         <>
             {
-                location === 'seoul'    ? <SeoulMain /> :
-                location === 'guro'     ? <SeoulGuro /> :
-                location === ''         ? <></>         :
-                location === ''         ? <></>         :
-                location === ''         ? <></>         :
-                location === ''         ? <></>         :
-                location === ''         ? <></>         :
-                location === ''         ? <></>         :
-                location === ''         ? <></>         :
-                location === ''         ? <></>         :
-                location === ''         ? <></>         :
+                location === 'seoul'        ? <SeoulMain /> :
+                location === 'guro'         ? <></>         :
+                location === 'dobong'       ? <></>         :
+                location === 'dongdaemun'   ? <></>         :
+                location === 'dongjak'      ? <></>         :
+                location === 'eunpyeong'    ? <></>         :
+                location === 'gangbuk'      ? <></>         :
+                location === 'gangdong'     ? <></>         :
+                location === 'gangnam'      ? <></>         :
+                location === 'gangseo'      ? <></>         :
+                location === 'geumcheon'    ? <></>         :
+                location === 'guro'         ? <SeoulGuro /> :
+                location === 'gwanak'       ? <></>         :
+                location === 'gwangjin'     ? <></>         :
+                location === 'jongno'       ? <></>         :
+                location === 'jung'         ? <></>         :
+                location === 'jungnang'     ? <></>         :
+                location === 'mapo'         ? <></>         :
+                location === 'nowon'        ? <></>         :
+                location === 'seocho'       ? <></>         :
+                location === 'seodaemun'    ? <></>         :
+                location === 'seongbuk'     ? <></>         :
+                location === 'seongdong'    ? <></>         :
+                location === 'songpa'       ? <></>         :
+                location === 'yangcheon'    ? <></>         :
+                location === 'yeongdeunpo'  ? <></>         :
+                location === 'yongsan'      ? <></>         :
                 <Nationwide />
             }
         </>
