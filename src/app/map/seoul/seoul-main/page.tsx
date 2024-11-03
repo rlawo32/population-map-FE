@@ -8,6 +8,15 @@ import * as styled from "./../../nationwide.style";
 const SeoulMain = () => {
     const router = useRouter();
 
+    // x: x좌표, y: y좌표, w: 막대세로길이, h: 막대가로길이, t: 툴팁 on/off, r: 막대반전여부
+    const [x, setX] = useState<number>(0);
+    const [y, setY] = useState<number>(0);
+    const [w, setW] = useState<number>(0);
+    const [h, setH] = useState<number>(0); 
+    const [t, setT] = useState<boolean>(false);
+    const [r, setR] = useState<boolean>(false);
+    
+    const [locationName, setLocationName] = useState<string>("");
     const [fade, setFade] = useState<boolean>(false);
 
     const moveLocationHandler = (e:any, location:string) => {
@@ -18,6 +27,7 @@ const SeoulMain = () => {
     
     return (
         <styled.moveLocation $fade={fade}>
+            <styled.Tooltip $x={x} $y={y} $t={t} $r={r} $w={w} $h={h}><div className="tt_box">{locationName}</div></styled.Tooltip>
             <div className="location_child">
                 <svg xmlns="http://www.w3.org/2000/svg" version="1.2" width="1000" height="1000">
                     <g><path className="child_map" fill="#FFF" onClick={(e) => moveLocationHandler(e, 'guro')} 

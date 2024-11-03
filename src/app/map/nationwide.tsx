@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import * as styled from "./nationwide.style";
+
 import useLocationDataStore from "../stores/useLocationDataStore";
 
 const Nationwide = () => {
