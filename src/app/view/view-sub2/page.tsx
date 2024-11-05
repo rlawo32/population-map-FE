@@ -7,7 +7,7 @@ import { Bar, Chart, Line, Doughnut } from "react-chartjs-2";
 import 'chart.js/auto';
 
 import * as Styled from "./page.style";
-import Counting from "../Counting";
+import Counting from "../../function/Counting";
 
 const ViewSub2 = () => {
     const client:any = supabase();
